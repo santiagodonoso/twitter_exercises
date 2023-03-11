@@ -1,0 +1,95 @@
+<div class="sticky z-10 top-0 z-2 flex py-2 px-4 gap-4 bg-black/[.75] backdrop-blur-md">
+  <div class="flex">
+    <a href="/">
+      <svg viewBox="0 0 24 24" aria-hidden="true" class="w-6">
+        <g fill="#e2e8f0">
+          <path d="M7.414 13l5.043 5.04-1.414 1.42L3.586 12l7.457-7.46 1.414 1.42L7.414 11H21v2H7.414z" fill="#e2e8f0"></path>
+        </g>
+      </svg>
+    </a>
+  </div>
+  <div>
+    <p class="flex">
+      <span class="font-semibold text-slate-200 text-lg hover:underline underline-offset-2">
+        {{ profile["user_first_name"] }} {{ profile["user_last_name"] }} 
+      </span>
+      <span class="flex items-center px-1"><svg viewBox="0 0 24 24" aria-label="Verified account" role="img" class="w-5" data-testid="icon-verified">
+          <g fill="#1D9BF0">
+            <path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z" fill="#1D9BF0"></path>
+          </g>
+        </svg>
+      </span>
+    </p>
+    <p class="text-sm flex items-center text-gray-500">
+      {{ profile["user_total_tweets"] }}
+      Tweets
+    </p>
+  </div>
+</div>
+
+<img src="/banners/{{profile['user_banner']}}">
+
+<div class="flex flex-col gap-2 p-4 mb-4">
+  <!-- profile img and btns -->
+  <div class="flex justify-between">
+    <div class="relative w-24 sm:w-32">
+      <img src="/avatars/{{profile['user_avatar']}}" class="absolute bottom-0 w-16 lg:w-32 h-16 lg:h-32 rounded-full" alt="">
+    </div>
+    <!-- buttons -->
+    <div class="flex items-start gap-2">
+      <button class="border border-zinc-600 rounded-full p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+        </svg>
+      </button>
+      <button class="border border-zinc-600 rounded-full p-2">
+        <svg fill="currentColor" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6">
+          <g>
+            <path d="M22 5v2h-3v3h-2V7h-3V5h3V2h2v3h3zm-.86 13h-4.241c-.464 2.281-2.482 4-4.899 4s-4.435-1.719-4.899-4H2.87L4 9.05C4.51 5.02 7.93 2 12 2v2C8.94 4 6.36 6.27 5.98 9.3L5.13 16h13.73l-.38-3h2.02l.64 5zm-6.323 0H9.183c.412 1.164 1.51 2 2.817 2s2.405-.836 2.817-2z"></path>
+          </g>
+        </svg>
+      </button>
+      <button class="border border-zinc-600 rounded-full px-4 py-2">Following</button>
+    </div>
+  </div>
+
+  <!-- username and twitter name -->
+  <div>
+    <p class="flex">
+      <span class="font-semibold text-slate-200 text-lg hover:underline underline-offset-2">
+        Shakira 
+      </span>
+      <span class="flex items-center px-1"><svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Verified account" role="img" class="w-5" data-testid="icon-verified">
+          <g fill="#1D9BF0">
+            <path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z" fill="#1D9BF0"></path>
+          </g>
+        </svg>
+      </span>
+    </p>
+    <p class="text-sm flex items-center text-gray-500">@shakira</p>
+  </div>
+  <div class="flex gap-1">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="#6b7280" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6">
+      <g>
+        <path d="M7 4V3h2v1h6V3h2v1h1.5C19.89 4 21 5.12 21 6.5v12c0 1.38-1.11 2.5-2.5 2.5h-13C4.12 21 3 19.88 3 18.5v-12C3 5.12 4.12 4 5.5 4H7zm0 2H5.5c-.27 0-.5.22-.5.5v12c0 .28.23.5.5.5h13c.28 0 .5-.22.5-.5v-12c0-.28-.22-.5-.5-.5H17v1h-2V6H9v1H7V6zm0 6h2v-2H7v2zm0 4h2v-2H7v2zm4-4h2v-2h-2v2zm0 4h2v-2h-2v2zm4-4h2v-2h-2v2z"></path>
+      </g>
+    </svg>
+    <p class="text-sm flex items-center text-gray-500">Joined June 2009</p>
+  </div>
+  <div class="flex gap-4">
+    <a href="/"><span class="text-sm">235 </span><span class="text-sm text-gray-500">Following</span></a>
+    <a href="/"><span class="text-sm">53700000 </span><span class="text-sm text-gray-500">Followers</span></a>
+  </div>
+  <p class="text-sm text-gray-500">Not followed by anyone you’re following</p>
+</div>
+
+<div class="">
+  <div class="flex flex-nowrap justify-around overflow-x-auto overflow-y-hidden sm:whitespace-nowrap [&amp;>a]:flex-shrink-0">
+    <a href="/" class="hover:bg-zinc-800 p-4">
+      <span class="border-b-4 pb-4 border-sky-600">Tweets</span>
+    </a>
+    <a href="/" class="hover:bg-zinc-800 p-4">Tweets &amp; replies</a>
+    <a href="/" class="hover:bg-zinc-800 p-4">Media</a>
+    <a href="/" class="hover:bg-zinc-800 p-4">Likes</a>
+  </div>
+</div>
