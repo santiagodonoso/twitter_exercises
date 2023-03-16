@@ -1,12 +1,9 @@
-# 5cb8bb80eaaf4710bd477710fb1afd91300c5dea23f7447a9aa41b04d9959057
-
-# https://5cb8bb80eaaf4710bd477710fb1afd91300c5dea23f7447a9aa41b04d9959057@github.com/santiagodonoso/mysite.git
 
 # Tailwind
 # Inside the tailwindcss folder, run: 
 # npx tailwindcss -i ./input.css -o ../app.css --watch 
 
-from bottle import default_app, get, post, response, run, static_file, template
+from bottle import default_app, get, post, request, response, run, static_file, template
 import git
 import x
 
@@ -51,9 +48,11 @@ def _(filename):
   return static_file(filename, root="js")
 
 ##############################
-@get("/test")
+@post("/test")
 def _():
-  return template("test", user={})
+  print("#"*30)
+  print(request.forms.get("user_name"))
+  return "ok"
 
 ##############################
 @get("/logout")
@@ -70,12 +69,13 @@ def _():
 import views.index
 import views.login
 import views.profile
+import views.test
 
 ##############################
 import apis.api_login
 import apis.api_tweet
 import apis.api_sign_up
-
+import apis.api_follow
 
 ##############################
 try:

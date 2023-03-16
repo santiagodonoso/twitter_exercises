@@ -42,11 +42,12 @@ USER_EMAIL_REGEX = "^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\
 
 def validate_user_email():
 	error = f"user_email invalid"
-	request.forms.user_email = request.forms.user_email.strip()
-	if len(request.forms.user_email) < USER_EMAIL_MIN : raise Exception(400, error)
-	if len(request.forms.user_email) > USER_EMAIL_MAX : raise Exception(400, error)  
-	if not re.match(USER_EMAIL_REGEX, request.forms.user_email): raise Exception(400, error)
-	return request.forms.user_email
+	user_email = request.forms.get("user_email", "")        
+	user_email = user_email.strip()
+	if len(user_email) < USER_EMAIL_MIN : raise Exception(400, error)
+	if len(user_email) > USER_EMAIL_MAX : raise Exception(400, error)  
+	if not re.match(USER_EMAIL_REGEX, user_email): raise Exception(400, error)
+	return user_email
 
 ##############################
 
@@ -56,9 +57,10 @@ USER_NAME_REGEX = "^[a-z]{2,20}$"
 
 def validate_user_name():
 	error = f"user_name {USER_NAME_MIN} to {USER_NAME_MAX} lowercased english letters"
-	request.forms.user_name = request.forms.user_name.strip()
-	if not re.match(USER_NAME_REGEX, request.forms.user_name): raise Exception(400, error)
-	return request.forms.user_name
+	user_name = request.forms.get("user_name", "")
+	user_name = user_name.strip()
+	if not re.match(USER_NAME_REGEX, user_name): raise Exception(400, error)
+	return user_name
 
 ##############################
 
@@ -67,17 +69,20 @@ USER_PASSWORD_MAX = 50
 
 def validate_user_password():
 	error = f"user_password {USER_PASSWORD_MIN} to {USER_PASSWORD_MAX} characters"
-	request.forms.user_password = request.forms.user_password.strip()
-	if len(request.forms.user_password) < USER_PASSWORD_MIN : raise Exception(400, error)
-	if len(request.forms.user_password) > USER_PASSWORD_MAX : raise Exception(400, error)
-	return request.forms.user_password
+	user_password = request.forms.get("user_password", "")
+	user_password = user_password.strip()
+	if len(user_password) < USER_PASSWORD_MIN : raise Exception(400, error)
+	if len(user_password) > USER_PASSWORD_MAX : raise Exception(400, error)
+	return user_password
 
 def validate_user_confirm_password():
 	error = f"user_password and user_confirm_password do not match"
-	request.forms.user_password = request.forms.user_password.strip()
-	request.forms.user_confirm_password = request.forms.user_confirm_password.strip()
-	if request.forms.user_confirm_password != request.forms.user_password: raise Exception(400, error)
-	return request.forms.user_confirm_password
+	user_password = request.forms.get("user_password", "")
+	user_confirm_password = request.forms.get("user_confirm_password", "")
+	user_password = user_password.strip()
+	user_confirm_password = user_confirm_password.strip()
+	if user_confirm_password != user_password: raise Exception(400, error)
+	return user_confirm_password
 
 ##############################
 
@@ -86,10 +91,11 @@ TWEET_MAX = 20
 
 def validate_tweet_message():
 	error = f"tweet_message {TWEET_MIN} to {TWEET_MAX} characters"
-	request.forms.tweet_message = request.forms.tweet_message.strip()
-	if len(request.forms.tweet_message) < TWEET_MIN : raise Exception(400, error)
-	if len(request.forms.tweet_message) > TWEET_MAX : raise Exception(400, error)
-	return request.forms.tweet_message
+	tweet_message = request.forms.get("tweet_message", "")
+	tweet_message = tweet_message.strip()
+	if len(tweet_message) < TWEET_MIN : raise Exception(400, error)
+	if len(tweet_message) > TWEET_MAX : raise Exception(400, error)
+	return tweet_message
 
 ##############################
 
