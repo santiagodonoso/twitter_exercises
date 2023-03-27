@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+  </head>
+  <body>
+    <main>
+      <section id="users">
+        % for user in users:
+        <div class="user" id="{{user['user_id']}}">
+          <form onsubmit="delete_user(); return false">
+            <div>{{user["user_id"]}}</div>
+            <div>{{user["user_name"]}}</div>
+            <input
+              style="display: none"
+              type="text"
+              name="user_id"
+              value="{{user['user_id']}}"
+            />
+            <button type="submit">🗑️</button>
+          </form>
+        </div>
+        %end
+      </section>
+    </main>
+    <script>
+      async function delete_user() {
+        const frm = event.target;
+        console.log("here");
+        const resp = await fetch("/user", {
+          method: "DELETE",
+          body: new FormData(frm),
+        });
+
+        const data = await resp.json();
+
+        console.log(data);
+        document.getElementById(`${data.user_id}`).style.display = "none";
+      }
+    </script>
+  </body>
+</html>

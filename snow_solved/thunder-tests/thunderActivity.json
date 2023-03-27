@@ -1,0 +1,51 @@
+[
+  {
+    "_id": "61c5ad50-0203-4e26-ae74-6fa3ea544ce7",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://127.0.0.1:3000/api-delete-user",
+    "url": "http://127.0.0.1:3000/user",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2023-03-27T07:42:23.488Z",
+    "modified": "2023-03-27T09:13:18.240Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "user_id",
+          "value": "7"
+        }
+      ]
+    },
+    "tests": [
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "equal",
+        "value": "200"
+      },
+      {
+        "type": "res-body",
+        "custom": "",
+        "action": "isjson",
+        "value": ""
+      },
+      {
+        "type": "Content-Type",
+        "custom": "",
+        "action": "equal",
+        "value": "application/json"
+      },
+      {
+        "type": "res-code",
+        "custom": "",
+        "action": "contains",
+        "value": "info"
+      }
+    ]
+  }
+]
