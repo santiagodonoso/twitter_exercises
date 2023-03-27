@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<main>
+		<section id="users">
+			% for user in users:
+			<div class="user">
+				<div>{{ user["user_id"] }}</div>
+				<div>{{ user["user_name"] }}</div>
+				<button onclick="delete_user('{{user['user_id']}}')">
+					🗑️
+				</button>
+			</div>
+			% end
+		</section>
+	</main>
+
+	<script>
+		function delete_user(user_id){
+			console.log(`deleting user with id ${user_id}`)
+		}
+	</script>
+
+
+</body>
+</html>
